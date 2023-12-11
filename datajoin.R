@@ -5,7 +5,6 @@ library(ggplot2)
 more_df <- read.csv("mxmh_survey_results(1).csv") 
 genre_df <- read.csv("data_by_genres.csv")
 
-genre_names <- colnames(df)[25:40]
 more_df$Fav.genre <- tolower(more_df$Fav.genre)
 
 
@@ -41,7 +40,7 @@ scatter <- ggplot(df, aes(x = Hours.per.day, y = negative.mental.level, color = 
     caption = "time of listening versus negative level of mental level"
   )
 
-plot(scatter)
+#plot(scatter)
 
 df_new <- df[df$Music.effects != "",]
 
@@ -55,6 +54,7 @@ pie_chart <- ggplot(data, aes(x = "", y = Count, fill = Category)) +
   coord_polar("y") +  # Convert the bar chart into a pie chart
   theme_void() +  # Remove unnecessary elements
   labs(title = "Proportion table of the reported effects on mental health")
+
 column_mapping <- c(
   "Frequency..Classical." = "Classical",
   "Frequency..Country." = "Country",
@@ -75,7 +75,7 @@ column_mapping <- c(
 )
 colnames(df)[25:40] <- column_mapping[names(df)[25:40]]
 
-
+genre_names <- colnames(df)[25:40]
 
 
 
